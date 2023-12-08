@@ -3,7 +3,7 @@ const { error } = require("./modules/01-mocks/src/constants");
 const assert = require("assert");
 
 (async () => {
-  // Each variables which has been cerated within breackets are valid only on its scope
+  // Each variable which has been created within brackets are valid only on its scope
 
   {
     const filePath = "./modules/01-mocks/mocks/three-items-valid.csv";
