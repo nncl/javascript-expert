@@ -1,5 +1,5 @@
-const File = require("./modules/01-mocks/src/file");
-const { error } = require("./modules/01-mocks/src/constants");
+const File = require("./src/file");
+const { error } = require("./src/constants");
 const assert = require("assert");
 
 (async () => {
