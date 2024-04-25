@@ -8,9 +8,10 @@ const sinon = createSandbox();
 
   /*
    * 0,1,1,2,3
+   * Verifies how many times the execute() function has been called,
+   * and with what parameters.
    */
   {
-
     const fibonacci = new Fibonacci();
     const spy = sinon.spy(
       fibonacci,
@@ -24,6 +25,9 @@ const sinon = createSandbox();
     assert.strictEqual(spy.callCount, expectedCallCount);
   }
 
+  /*
+   * Verifies if the execute function() returned the expected values
+   */
   {
     const fibonacci = new Fibonacci();
     const spy = sinon.spy(
@@ -36,8 +40,8 @@ const sinon = createSandbox();
     const expectedCallCount = 6;
     assert.strictEqual(spy.callCount, expectedCallCount);
 
-    const { args } = spy.getCall(2);
-    const expectedParams = [2,2,3]; // 3,1,2
+    const { args } = spy.getCall(4);
+    const expectedParams = [1,3,5];
     /*
      * 5 sequences (input - 1, current, current + next)
      * [0] = input = 5, current = 0, next = 1 : result 0
@@ -47,7 +51,7 @@ const sinon = createSandbox();
      * [4] = input = 1, current = 3, next = 5 : result 1
      * [5] = input = 0, current = 5, next = 8 : STOP
      */
-    assert.deepStrictEqual(args, expectedParams, "Arrays must be equal")
+    assert.deepStrictEqual(args, expectedParams, "Arrays params must be equal")
 
     const expectedResults = [0,1,1,2,3];
     assert.deepStrictEqual(results, expectedResults, "Arrays must be equal")
