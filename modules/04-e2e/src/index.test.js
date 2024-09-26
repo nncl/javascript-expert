@@ -38,6 +38,7 @@ describe('API suite test', () => {
         .send({ username: 'cauealmeida', password: '1234' })
         .expect(401);
 
+      assert.ok(response.unauthorized);
       assert.strictEqual(response.text, "Login failed!");
     });
   });
